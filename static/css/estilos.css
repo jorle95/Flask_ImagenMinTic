@@ -1,0 +1,74 @@
+html{
+    scroll-behavior: smooth;
+}
+body { 
+    padding-top: 70px;
+    background-color: rgb(224, 239, 240);
+}
+h1 {
+    font-size: 70px;
+}
+
+.reto {
+    margin: 5%;
+    padding: 50px 20px;
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+
+}
+
+.reto:hover {
+    border: 5px solid rgb(0, 125, 209);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale (1.1);
+    transform: scale(1.1);
+}
+
+#fondo {
+    background-image: url('https://www.misiontic2022.gov.co/746/articles-150235_foto_marquesina.jpg');
+    background-size: cover;
+    padding: 10px;
+    min-height: 600px;
+    color:  rgb(0, 125, 209);
+}
+
+.content-center {
+    max-width: 800px;
+    margin: 0% auto 30% auto;
+    
+
+}
+
+.content-center:hover {
+    color: rgb(226, 43, 98);
+}
+
+.btn1 {
+    padding: 15px 56px;
+    font-size: 120%;
+    display: inline-block;
+    margin-left: 41%;
+    
+}
+
+.btn1:hover {
+    background-color: rgb(226, 43, 98);
+}
+
+
+.tb {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.imagenC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilos.css')}}">
+    <title>Reto practico</title>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-primary">
+        <a href="https://www.mintic.gov.co/portal/inicio/" target="_Blank"><img src="{{url_for('static',filename='img/logoMintic.PNG')}}" alt="logo Mintic"></a>
+        <p class="navbar-brand">GOV.CO</p>
+    </nav>
+
+    <section id="fondo">
+        <div class="container">
+            <div class="content-center">
+                <h1 class="text-center">Pruebas de desarrollo</h1>
+            </div>
+            <div>
+                <a href="#ret" class="btn btn-primary btn1">Reto práctico</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <div class="card reto">
+        <h3 class="card-title">Reto práctico:</h3> 
+        <p class="card-text">
+            Desarrollar una aplicación Web utilizando HTML, CSS, Javascript y librerías y frameworks que necesite, que cumpla con las siguientes funciones:
+        </p>
+        <ul class="card-text">
+            <li>Que permita el cargue de una imagen (formato jpg, jpeg y/o png)</li>
+            <li>Una vez cargada, debe permitir su visualización</li>
+            <li>Debe listar las características generales de la imagen (Ej: Resolución, formato, tamaño en Kb)</li>
+            <li>Al hacer o dar clic sobre algún punto de la imagen visualizada en la aplicación Web, debe presentar la siguiente información:
+                <ul>
+                    <li>Coordenas del pixel seleccionado</li>
+                    <li>Color en formato Hexagesimal (EJ. #62ACB7)</li>
+                    <li>Color en formato RGB (EJ. 98, 172, 183)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <div class="card reto" id="ret">
+        <h3 class="card-title">Ingrese la imagen</h3>
+        <form action="/imagen" enctype="multipart/form-data" method="POST">
+            <label class=""></label><br>
+            <input type="file" name="pic" class=""/>
+            <input type="submit" id="reg" class="btn btn-primary" value="Cargar la imagen">
+        </form>
+    </div>
+
+  
+    <!-- Imagenes cargadas -->
+    <div>
+        {% for imagen in imagenes %}
+            <!-- Tabla con la información solicitada -->
+        <div class="card-body">
+            <table class="table tb" >
+                <thead class="table-dark">
+                    <th class="text-center">Resolución</th>
+                    <th class="text-center">Formato</th>
+                    <th class="text-center">Tamaño (KB)</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center res"></td>
+                        <td class="text-center">{{imagen.mimetype}}</td>
+                        <td class="text-center" id="tam"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-body">
+            <table class="table tb" >
+                <thead class="table-dark">
+                    <th class="text-center">Coordenas (X)</th>
+                    <th class="text-center">Coordenas (Y)</th>
+                    <th class="text-center">RGB </th>
+                    <th class="text-center">Hexagesimal </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center" id="x"></td>
+                        <td class="text-center"id="y"></td>
+                        <td class="text-center" id="rgb"></td>
+                        <td class="text-center" id="hexa"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="imagenC">
+        <img src="/imagen/{{imagen.id}}" class="img">
+        <pre id="output" class="imagenC"></pre>
+        </div>
+        {% endfor %}
+    </div>
+    <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Jorge Martinez </div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{url_for('static',filename='js/script.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
