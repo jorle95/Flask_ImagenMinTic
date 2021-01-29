@@ -67,15 +67,7 @@ $img.forEach( el =>{
             let hexag = "#"+fullColorHex(pixel[0], pixel[1], pixel[2]);
             console.log(hexag);
             hexa.innerHTML=hexag;
-            // output.innerHTML ='R: ' + pixel[0] + '<br>G: ' + pixel[1] +
-            //     '<br>B: ' + pixel[2] + '<br>A: ' + pixel[3];
-
         });
-    
-        // el.addEventListener("click",(e)=>{
-    //     console.log("X: ",e.offsetX);
-    //     console.log("Y: ",e.offsetY);
-    // })
     con +=1;
 })
 
